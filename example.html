@@ -1,11 +1,17 @@
+<html>
+<head>
+<script type="text/javascript" src="textile_buttons.js"></script>
+</head>
+<body>
+
 <a href="#" onclick="insertTextile('textile_body', '*', '*'); return false;; return false;">bold</a>
 <a href="#" onclick="insertTextile('textile_body', '_', '_'); return false;; return false;">italic</a>
 <a href="#" onclick="insertTextile('textile_body', '\n* ', ''); return false;; return false;">bullet</a>
-
 <a href="#" onclick="insertTextileLink('textile_body', false); return false;; return false;">link</a>
 
-<p>
-<textarea cols="40" id="textile_body" rows="20">
+<p />
+    
+<textarea id="textile_body" cols="40" rows="20">
 Try highlighting some of this sample text and clicking the links above:
 
 link me to github.com
@@ -18,4 +24,6 @@ bulleted list item
 bulleted list item
 bulleted list item
 </textarea>
-</p>
+
+</body>
+</html>
