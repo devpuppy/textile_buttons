@@ -6,7 +6,7 @@ function getNoLines(element) {
   }
   return total;
 }
-
+ 
 function expandoCheck(element) {
   var lines = getNoLines(element);
   var aMaxSetting = parseInt(element.rows) * 0.9;
@@ -15,10 +15,10 @@ function expandoCheck(element) {
   if (((lines > aMaxSetting) || (lines < aMinSetting)) && lines > 16)
     element.rows = '' + (parseInt(getNoLines(element)) + 6);
 }
-
-function insertTextile(field, prefix, suffix) {   
+ 
+function insertTextile(field, prefix, suffix) {
   var selection;
-  field = $(field);
+  field = document.getElementById(field);
   field.focus();
   
   // IE preliminary support
@@ -26,13 +26,13 @@ function insertTextile(field, prefix, suffix) {
     selection = document.selection.createRange();
     var selectionText = (selection.text == '') ? 'enter text':selection.text;
     
-	if (prefix.match(/\n[*]/) || prefix.match(/\n1[.]/)) {
-		selectionText = selectionText.replace(/(\r\n|\n)/g, prefix);
-		var duplicate = selection.duplicate();
-		duplicate.moveStart('character', -1);
-		prefix = (duplicate.text.match(/^(\r\n|\n)/)) ? prefix.replace(/(\r\n|\n)/, ''):prefix;
-	}
-
+if (prefix.match(/\n[*]/) || prefix.match(/\n1[.]/)) {
+selectionText = selectionText.replace(/(\r\n|\n)/g, prefix);
+var duplicate = selection.duplicate();
+duplicate.moveStart('character', -1);
+prefix = (duplicate.text.match(/^(\r\n|\n)/)) ? prefix.replace(/(\r\n|\n)/, ''):prefix;
+}
+ 
     selection.text = prefix + selectionText + suffix;
   }
   
@@ -59,11 +59,11 @@ function insertTextile(field, prefix, suffix) {
       if (!continuation)
         prefix = '\n' + prefix;
     } else if (prefix.match(/\n[*]/) || prefix.match(/\n1[.]/)) {
-		selection = selection.replace(/(\r\n|\n)/g, prefix);
-		if (preSelection.substring(preSelection.length, 1).match(/(\r\n|\n)/)) {
-			prefix = prefix.replace(/\n/, '');
-		}
-	}
+selection = selection.replace(/(\r\n|\n)/g, prefix);
+if (preSelection.substring(preSelection.length, 1).match(/(\r\n|\n)/)) {
+prefix = prefix.replace(/\n/, '');
+}
+}
         
     if (startSelection == endSelection) {
       var insertText = 'enter text'
@@ -80,7 +80,7 @@ function insertTextile(field, prefix, suffix) {
     field.setSelectionRange(startPoint, endPoint);
   }
 }
-
+ 
 function insertTextileLink(field, external) {
   var linkUrl = prompt('Please enter the address:', 'http://');
   if (linkUrl == null)
