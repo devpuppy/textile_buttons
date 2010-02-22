@@ -8,14 +8,10 @@ h2. Features
 
 * Works in IE7, Firefox 3, Safari 3
 * Will apply markup to highlighted text, or insert example text if no selection
+* Pure javascript is framework agnostic
 
 h2. Examples
 
-@ <a href="#" onclick="insertTextile('body', '*', '*'); return false">Bold</a> @
-
-@ <a href="#" onclick="insertTextile('body', '\nbq. ', '\n'); return false">Block Quote</a> @
-
-@ <a href="#" onclick="insertTextileLink('body', false); return false">Hyperlink</a> @
-
+see example.html
 
 Released by Cement Horses under the MIT License.
